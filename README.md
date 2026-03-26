@@ -1,287 +1,172 @@
+# Blender MCP - Terms of Use and Privacy Policy
 
+**Last Updated: January 2025**
 
-# BlenderMCP - Blender Model Context Protocol Integration
+---
 
-BlenderMCP connects Blender to Claude AI through the Model Context Protocol (MCP), allowing Claude to directly interact with and control Blender. This integration enables prompt assisted 3D modeling, scene creation, and manipulation.
+## 1. About This Project
 
-**We have no official website. Any website you see online is unofficial and has no affiliation with this project. Use them at your own risk.**
+Blender MCP is a free, open-source project maintained by Siddharth Ahuja ("I," "me," "my"). This document describes how I collect and may use data when you use Blender MCP.
 
-[Full tutorial](https://www.youtube.com/watch?v=lCyQ717DuzQ)
+By using Blender MCP, you agree to these terms. If you do not agree, please do not use the software.
 
-### Join the Community
+---
 
-Give feedback, get inspired, and build on top of the MCP: [Discord](https://discord.gg/z5apgR8TFU)
+## 2. Data I Collect
 
-### Supporters
+When you use Blender MCP, I may collect:
 
-[CodeRabbit](https://www.coderabbit.ai/)
+- **Prompts and text inputs** you provide to the AI
+- **Generated code** produced in response to your prompts
+- **Scene metadata** such as object names, modifier settings, and configurations
+- **Basic usage data** including timestamps and feature usage
 
-**All supporters:**
+I do **not** collect:
 
-[Support this project](https://github.com/sponsors/ahujasid)
+- Screenshots or images of your viewport
+- Your Blender files or 3D models
+- Personal files unrelated to your Blender session
+- Passwords or financial information
+- Data from other applications on your system
 
-## Current version(1.5.5)
-- Added Hunyuan3D support
-- View screenshots for Blender viewport to better understand the scene
-- Search and download Sketchfab models
-- Support for Poly Haven assets through their API
-- Support to generate 3D models using Hyper3D Rodin
-- Run Blender MCP on a remote host
-- Telemetry for tools executed (completely anonymous)
+---
 
-### Installating a new version (existing users)
-- For newcomers, you can go straight to Installation. For existing users, see the points below
-- Download the latest addon.py file and replace the older one, then add it to Blender
-- Delete the MCP server from Claude and add it back again, and you should be good to go!
+## 3. How I May Use Your Data
 
+I am currently collecting data for potential future use. This data may be used to:
 
-## Features
+- **Train AI models** for 3D creation and Blender automation
+- **Improve Blender MCP** based on real-world usage
+- **Conduct research** on AI-assisted creative workflows
+- **Share datasets** with the research community (in anonymized or aggregated form)
 
-- **Two-way communication**: Connect Claude AI to Blender through a socket-based server
-- **Object manipulation**: Create, modify, and delete 3D objects in Blender
-- **Material control**: Apply and modify materials and colors
-- **Scene inspection**: Get detailed information about the current Blender scene
-- **Code execution**: Run arbitrary Python code in Blender from Claude
+Your data may be:
 
-## Components
+- Stored indefinitely
+- Used to train machine learning models in the future
+- Released as part of an open dataset (anonymized)
 
-The system consists of two main components:
+---
 
-1. **Blender Addon (`addon.py`)**: A Blender addon that creates a socket server within Blender to receive and execute commands
-2. **MCP Server (`src/blender_mcp/server.py`)**: A Python server that implements the Model Context Protocol and connects to the Blender addon
+## 4. Data Sharing
 
-## Installation
+I may share collected data with:
 
+- **The open-source/research community** as part of public datasets
+- **Collaborators** working on AI or Blender-related research
+- **Legal authorities** if required by law
 
-### Prerequisites
+I do not sell your data.
 
-- Blender 3.0 or newer
-- Python 3.10 or newer
-- uv package manager: 
+---
 
-**If you're on Mac, please install uv as**
-```bash
-brew install uv
-```
-**On Windows**
-```powershell
-powershell -c "irm https://astral.sh/uv/install.ps1 | iex" 
-```
-and then add uv to the user path in Windows (you may need to restart Claude Desktop after):
-```powershell
-$localBin = "$env:USERPROFILE\.local\bin"
-$userPath = [Environment]::GetEnvironmentVariable("Path", "User")
-[Environment]::SetEnvironmentVariable("Path", "$userPath;$localBin", "User")
-```
+## 5. Your Rights
 
-Otherwise installation instructions are on their website: [Install uv](https://docs.astral.sh/uv/getting-started/installation/)
+You may:
 
-**⚠️ Do not proceed before installing UV**
+- **Request access** to the data I've collected from your usage
+- **Request deletion** of your data
 
-### Environment Variables
+To exercise these rights, contact me at ahujasid@gmail.com.
 
-The following environment variables can be used to configure the Blender connection:
+**Important:** If data has been used to train an AI model or included in a public dataset, it may not be possible to fully remove it.
 
-- `BLENDER_HOST`: Host address for Blender socket server (default: "localhost")
-- `BLENDER_PORT`: Port number for Blender socket server (default: 9876)
+---
 
-Example:
-```bash
-export BLENDER_HOST='host.docker.internal'
-export BLENDER_PORT=9876
-```
+## 6. Data Retention
 
-### Claude for Desktop Integration
+- Data may be retained indefinitely
+- I will make reasonable efforts to honor deletion requests for unprocessed data
+- Anonymized or aggregated data may be retained and shared permanently
 
-[Watch the setup instruction video](https://www.youtube.com/watch?v=neoK_WMq92g) (Assuming you have already installed uv)
+---
 
-Go to Claude > Settings > Developer > Edit Config > claude_desktop_config.json to include the following:
+## 7. Security
 
-```json
-{
-    "mcpServers": {
-        "blender": {
-            "command": "uvx",
-            "args": [
-                "blender-mcp"
-            ]
-        }
-    }
-}
-```
-<details>
-<summary>Claude Code</summary>
+I take reasonable steps to protect collected data, but this is a solo open-source project, not a company with enterprise security infrastructure. I cannot guarantee absolute security.
 
-Use the Claude Code CLI to add the blender MCP server:
+---
 
-```bash
-claude mcp add blender uvx blender-mcp
-```
-</details>
+## 8. Children
 
-### Cursor integration
+Blender MCP is not intended for users under 16. I do not knowingly collect data from children.
 
-[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/link/mcp%2Finstall?name=blender&config=eyJjb21tYW5kIjoidXZ4IGJsZW5kZXItbWNwIn0%3D)
+---
 
-For Mac users, go to Settings > MCP and paste the following 
+## 9. International Users
 
-- To use as a global server, use "add new global MCP server" button and paste
-- To use as a project specific server, create `.cursor/mcp.json` in the root of the project and paste
+Your data may be stored and processed in any country. By using Blender MCP, you consent to international data transfers.
 
+---
 
-```json
-{
-    "mcpServers": {
-        "blender": {
-            "command": "uvx",
-            "args": [
-                "blender-mcp"
-            ]
-        }
-    }
-}
-```
+## 10. Intellectual Property
 
-For Windows users, go to Settings > MCP > Add Server, add a new server with the following settings:
+### Your Content
 
-```json
-{
-    "mcpServers": {
-        "blender": {
-            "command": "cmd",
-            "args": [
-                "/c",
-                "uvx",
-                "blender-mcp"
-            ]
-        }
-    }
-}
-```
+You retain ownership of your original creative work. By using Blender MCP, you grant me a **worldwide, royalty-free, perpetual license** to use:
 
-[Cursor setup video](https://www.youtube.com/watch?v=wgWsJshecac)
+- Prompts you submit
+- Images/screenshots of your Blender viewport
+- Code generated in response to your prompts
+- Scene metadata captured during use
 
-**⚠️ Only run one instance of the MCP server (either on Cursor or Claude Desktop), not both**
+This license is for AI training, research, open datasets, and improving the project.
 
-### Visual Studio Code Integration
+### AI-Generated Content
 
-_Prerequisites_: Make sure you have [Visual Studio Code](https://code.visualstudio.com/) installed before proceeding.
+You may use AI-generated code however you like, but it's provided "as is" with no guarantees.
 
-[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_blender--mcp_server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=ffffff)](vscode:mcp/install?%7B%22name%22%3A%22blender-mcp%22%2C%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22blender-mcp%22%5D%7D)
+### Blender MCP
 
-### Installing the Blender Addon
+The Blender MCP source code is open source under its stated license. These terms apply only to data collection.
 
-1. Download the `addon.py` file from this repo
-1. Open Blender
-2. Go to Edit > Preferences > Add-ons
-3. Click "Install..." and select the `addon.py` file
-4. Enable the addon by checking the box next to "Interface: Blender MCP"
+---
 
+## 11. No Warranty
 
-## Usage
+BLENDER MCP IS PROVIDED "AS IS" WITHOUT ANY WARRANTIES.
 
-### Starting the Connection
-![BlenderMCP in the sidebar](assets/addon-instructions.png)
+I do not guarantee that:
 
-1. In Blender, go to the 3D View sidebar (press N if not visible)
-2. Find the "BlenderMCP" tab
-3. Turn on the Poly Haven checkbox if you want assets from their API (optional)
-4. Click "Connect to Claude"
-5. Make sure the MCP server is running in your terminal
+- The software will work correctly
+- AI-generated code will be safe or functional
+- Your data will be secure
 
-### Using with Claude
+**You are responsible for reviewing any AI-generated code before using it.**
 
-Once the config file has been set on Claude, and the addon is running on Blender, you will see a hammer icon with tools for the Blender MCP.
+---
 
-![BlenderMCP in the sidebar](assets/hammer-icon.png)
+## 12. Limitation of Liability
 
-#### Capabilities
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, I AM NOT LIABLE FOR ANY DAMAGES ARISING FROM YOUR USE OF BLENDER MCP.
 
-- Get scene and object information 
-- Create, delete and modify shapes
-- Apply or create materials for objects
-- Execute any Python code in Blender
-- Download the right models, assets and HDRIs through [Poly Haven](https://polyhaven.com/)
-- AI generated 3D models through [Hyper3D Rodin](https://hyper3d.ai/)
+This is a free, open-source project maintained in my spare time. Use at your own risk.
 
+---
 
-### Example Commands
+## 13. Changes
 
-Here are some examples of what you can ask Claude to do:
+I may update these terms at any time. Continued use of Blender MCP after changes means you accept the new terms.
 
-- "Create a low poly scene in a dungeon, with a dragon guarding a pot of gold" [Demo](https://www.youtube.com/watch?v=DqgKuLYUv00)
-- "Create a beach vibe using HDRIs, textures, and models like rocks and vegetation from Poly Haven" [Demo](https://www.youtube.com/watch?v=I29rn92gkC4)
-- Give a reference image, and create a Blender scene out of it [Demo](https://www.youtube.com/watch?v=FDRb03XPiRo)
-- "Generate a 3D model of a garden gnome through Hyper3D"
-- "Get information about the current scene, and make a threejs sketch from it" [Demo](https://www.youtube.com/watch?v=jxbNI5L7AH8)
-- "Make this car red and metallic" 
-- "Create a sphere and place it above the cube"
-- "Make the lighting like a studio"
-- "Point the camera at the scene, and make it isometric"
+---
 
-## Hyper3D integration
+## 14. Contact
 
-Hyper3D's free trial key allows you to generate a limited number of models per day. If the daily limit is reached, you can wait for the next day's reset or obtain your own key from hyper3d.ai and fal.ai.
+Questions or requests? Email me at ahujasid@gmail.com.
 
-## Troubleshooting
+---
 
-- **Connection issues**: Make sure the Blender addon server is running, and the MCP server is configured on Claude, DO NOT run the uvx command in the terminal. Sometimes, the first command won't go through but after that it starts working.
-- **Timeout errors**: Try simplifying your requests or breaking them into smaller steps
-- **Poly Haven integration**: Claude is sometimes erratic with its behaviour
-- **Have you tried turning it off and on again?**: If you're still having connection errors, try restarting both Claude and the Blender server
+## 15. Consent
 
+By using Blender MCP, you acknowledge that:
 
-## Technical Details
+1. You have read and understood these terms
+2. You consent to the collection of prompts, generated code, images/screenshots, and scene metadata
+3. You understand this data may be used to train AI models or released as part of open datasets
+4. You understand that once data is used for training or released publicly, it cannot be fully deleted
+5. You are at least 16 years old
 
-### Communication Protocol
+---
 
-The system uses a simple JSON-based protocol over TCP sockets:
+*Blender MCP is an independent project and is not affiliated with the Blender Foundation.*
 
-- **Commands** are sent as JSON objects with a `type` and optional `params`
-- **Responses** are JSON objects with a `status` and `result` or `message`
-
-## Limitations & Security Considerations
-
-- The `execute_blender_code` tool allows running arbitrary Python code in Blender, which can be powerful but potentially dangerous. Use with caution in production environments. ALWAYS save your work before using it.
-- Poly Haven requires downloading models, textures, and HDRI images. If you do not want to use it, please turn it off in the checkbox in Blender. 
-- Complex operations might need to be broken down into smaller steps
-
-
-#### Telemetry Control
-
-BlenderMCP collects anonymous usage data to help improve the tool. You can control telemetry in two ways:
-
-1. **In Blender**: Go to Edit > Preferences > Add-ons > Blender MCP and uncheck the telemetry consent checkbox
-   - With consent (checked): Collects anonymized prompts, code snippets, and screenshots
-   - Without consent (unchecked): Only collects minimal anonymous usage data (tool names, success/failure, duration)
-
-2. **Environment Variable**: Completely disable all telemetry by running:
-```bash
-DISABLE_TELEMETRY=true uvx blender-mcp
-```
-
-Or add it to your MCP config:
-```json
-{
-    "mcpServers": {
-        "blender": {
-            "command": "uvx",
-            "args": ["blender-mcp"],
-            "env": {
-                "DISABLE_TELEMETRY": "true"
-            }
-        }
-    }
-}
-```
-
-All telemetry data is fully anonymized and used solely to improve BlenderMCP.
-
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## Disclaimer
-
-This is a third-party integration and not made by Blender. Made by [Siddharth](https://x.com/sidahuj)

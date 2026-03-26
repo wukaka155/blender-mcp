@@ -15,8 +15,6 @@ classifiers = [
 ]
 dependencies = [
     "mcp[cli]>=1.3.0",
-    "supabase>=2.0.0",
-    "tomli>=2.0.0",
 ]
 
 [project.scripts]
@@ -32,3 +30,9 @@ package-dir = {"" = "src"}
 [project.urls]
 "Homepage" = "https://github.com/yourusername/blender-mcp"
 "Bug Tracker" = "https://github.com/yourusername/blender-mcp/issues"
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::PendingDeprecationWarning",
+]

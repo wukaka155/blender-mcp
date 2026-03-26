@@ -1,0 +1,12 @@
+schema_version = "1.0.0"
+
+id = "blender_mcp"
+version = "1.5.5"
+name = "Blender MCP"
+tagline = "Connect Blender to MCP clients over a socket bridge"
+maintainer = "BlenderMCP"
+type = "add-on"
+blender_version_min = "4.2.0"
+license = [
+  "SPDX:MIT",
+]
